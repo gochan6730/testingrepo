@@ -30,11 +30,13 @@
  xhr.send();
  xhr.onreadystatechange = processRequest;
  function processRequest(e) {
- if (xhr.readyState == 4 && xhr.status == 200) {
  var response1 = JSON.parse(xhr.responseText);
- document.getElementById("origin").innerHTML = response1.fulllink;
- document.getElementById("url").innerHTML = response1.shortenedlink;
- document.getElementById("status").innerHTML = response1.status;
+ var responsecontent = response1.url;
+ var response2 = JSON.parse(responsecontent);
+   
+ document.getElementById("origin").innerHTML = response2.fulllink;
+ document.getElementById("url").innerHTML = response2.shortenedlink;
+ document.getElementById("status").innerHTML = response2.status;
  }
  }
     }
