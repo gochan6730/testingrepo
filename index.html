@@ -1,24 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detect Battery Status</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div id="battery">
-        <div id="charge"></div>
-        <div id="charge-level"></div>
-      </div>
-      <div id="charging-time"></div>
-    </div>
-    <script src="script.js"></script>
-  </body>
-</html>
+<!DOCTYPE html> 
+<html> 
+  
+<body> 
+  
+  <h4> 
+      Change the text of the text field  
+      ,and then click the button. 
+  </h4> 
+  
+  <label for="Longlinkt">Name: </label>
+  <input type="text" id="Longlink" > 
+  
+  <input type="text" id="Shortlink" > 
+  
+  <button type="button"  onclick="shortenit()"> 
+      click me!! 
+  </button> 
+  
+  <p id="result"></p> 
+
+  <script> 
+
+    const shortenit = () =>{
+      let longlinkval = document.getElementById("Longlink").value;
+      let shortlinkval = document.getElementById("Shortlink").value;
+      var theurl='https://cutt.ly/api/api.php?key=54ca76042fa36251a8b85ae4fdde40f760eda&short='+ longlinkval + '&name=' + shortlinkval
+      var xhr = new XMLHttpRequest();
+ xhr.open('POST', theurl, true);
+ xhr.send();
+ xhr.onreadystatechange = processRequest;
+ function processRequest(e) {
+ if (xhr.readyState == 4 && xhr.status == 200) {
+ var response1 = JSON.parse(xhr.responseText);
+ document.getElementById("origin").innerHTML = response1.fulllink;
+ document.getElementById("url").innerHTML = response1.shortenedlink;
+ document.getElementById("status").innerHTML = response1.status;
+ }
+ }
+    }
+    
+  </script> 
+
+<table>
+    <tr><td>origin :</td><td id="origin"></td></tr>
+    <tr><td>url :</td><td id="url"> </td></tr>
+    <tr><td>url :</td><td id="status"> </td></tr>
+    </table>
+
+</body> 
+  
+</html> 
