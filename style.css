@@ -10,7 +10,7 @@ body {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  height:100%;
+  min-height: 100vh;
   margin: 0;
   transition: background 0.2s linear;
 }
@@ -26,8 +26,8 @@ body.dark h1, body.dark .support a {color: #fff;}
 
 .checkbox-label {
   background-color: #111;
-  width: 80px;
-  height: 36px;
+  width: 600px;
+  height: 100px;
   border-radius: 50px;
   position: relative;
   padding: 5px;
@@ -43,8 +43,8 @@ body.dark h1, body.dark .support a {color: #fff;}
 
 .checkbox-label .ball {
   background-color: #fff;
-  width: 32px;
-  height: 32px;
+  width: 96px;
+  height: 96px;
   position: absolute;
   left: 2px;
   top: 2px;
@@ -53,5 +53,5 @@ body.dark h1, body.dark .support a {color: #fff;}
 }
 
 .checkbox:checked + .checkbox-label .ball {
-  transform: translateX(44px);
+  transform: translateX(500px);
 }
