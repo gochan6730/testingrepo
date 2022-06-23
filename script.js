@@ -75,3 +75,9 @@ if (SUPPORTS_MEDIA_DEVICES) {
 
   //The light will be on as long the track exists
 }
+
+// Interface
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
+})
