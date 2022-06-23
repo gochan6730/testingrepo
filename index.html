@@ -1,54 +1,23 @@
-<!DOCTYPE html> 
-<html> 
-  
-<body> 
-  
-  <h4> 
-      Change the text of the text field  
-      ,and then click the button. 
-  </h4> 
-  
-  <label for="Longlinkt">Name: </label>
-  <input type="text" id="Longlink" > 
-  
-  <input type="text" id="Shortlink" > 
-  
-  <button type="button"  onclick="shortenit()"> 
-      click me!! 
-  </button> 
-  
-  <p id="result"></p> 
-
-  <script> 
-
-    const shortenit = () =>{
-      let longlinkval = document.getElementById("Longlink").value;
-      let shortlinkval = document.getElementById("Shortlink").value;
-      var theurl='https://cutt.ly/api/api.php?key=54ca76042fa36251a8b85ae4fdde40f760eda&short='+ longlinkval + '&name=' + shortlinkval
-      var xhr = new XMLHttpRequest();
- xhr.open('POST', theurl, true);
- xhr.send();
- xhr.onreadystatechange = processRequest;
- function processRequest(e) {
- var response1 = JSON.parse(xhr.responseText);
- var responsecontent = response1.url;
- var response2 = JSON.parse(responsecontent);
-   
- document.getElementById("origin").innerHTML = response2.fulllink;
- document.getElementById("url").innerHTML = response2.shortenedlink;
- document.getElementById("status").innerHTML = response2.status;
- }
- }
-    }
-    
-  </script> 
-
-<table>
-    <tr><td>origin :</td><td id="origin"></td></tr>
-    <tr><td>url :</td><td id="url"> </td></tr>
-    <tr><td>url :</td><td id="status"> </td></tr>
-    </table>
-
-</body> 
-  
-</html> 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flashlight</title>
+    <!-- Linking Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Linking Script -->
+    <script src="script.js"></script>
+</head>
+<body>
+	<div class="flashlight">
+		<div class="upper">
+			<div class="s1"></div>
+		</div>
+		<div class="lower"></div>
+		<div class="body">
+			<button class="switch" type="button" id="button" onclick="glow()"></button>
+			<div class="s2"></div>
+		</div>
+		<div id="light"></div>
+	</div>
+</body>
+</html>
